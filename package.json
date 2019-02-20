@@ -1,0 +1,52 @@
+{
+  "name": "@drjs/api",
+  "version": "0.0.1",
+  "description": "Api library",
+  "main": "lib/index.js",
+  "author": "amadormf",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "babel -d dist src",
+    "compile:watch": "npm run compile -- --watch",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "test:cov": "babel-node $(npm bin)/istanbul cover $(npm bin)/_mocha -- --recursive",
+    "preversion": "yarn run lint",
+    "version": "yarn run compile",
+    "postversion": "git push --follow-tags"
+  },
+  "dependencies": {
+    "@drjs/actions": "^0.1.2",
+    "@drjs/router": "^0.1.1",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.1.0"
+  }
+}

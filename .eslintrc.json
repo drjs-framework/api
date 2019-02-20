@@ -1,0 +1,128 @@
+{
+    "extends": "eslint-config-airbnb",
+    "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true
+    },
+    "rules": {
+        "indent": [
+            2,
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-alert": 1,
+        "no-restricted-syntax": [
+            "error",
+            "WithStatement"
+        ],
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "ignore"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "global-require": 1,
+        "jsx-a11y/href-no-hash": "off",
+        "jsx-a11y/anchor-is-valid": [
+          "warn",
+          {
+            "aspects": [
+              "invalidHref"
+            ]
+          }
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "operator-linebreak": [
+          "error",
+          "after"
+        ],
+        "jsx-a11y/label-has-for": 1,
+        "react/no-find-dom-node": 1,
+        "react/no-unused-prop-types": 1,
+        "react/jsx-no-target-blank": 1,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "import/prefer-default-export": 0,
+        "react/forbid-prop-types": 0,
+        "no-plusplus": 0,
+        "class-methods-use-this": 0,
+        "react/sort-comp": 0,
+        "no-underscore-dangle": 0,
+        "import/no-extraneous-dependencies": 0,
+        "no-lonely-if": 0,
+        "react/no-danger": 0,
+        "function-paren-newline": 0,
+        "jsx-a11y/click-events-have-key-events": 0
+    },
+    "plugins": [
+        "react",
+        "import"
+    ],
+    "settings": {
+        "import/parser": "babel-eslint",
+        "import/resolver": {
+            "node": {
+                "moduleDirectory": [
+                    "node_modules",
+                    "src/front"
+                ]
+            }
+        }
+    },
+    "parser": "babel-eslint",
+    "globals": {
+        "Translate": true,
+        "trans": true,
+        "transChoice": true,
+        "Routing": true,
+        "FB": true,
+        "$": true,
+        "__initialAppState": true,
+        "google": true,
+        "dataLayer": true,
+        "environment": true,
+        "webpackIsomorphicTools": true,
+        "configuration": true,
+        "log": true,
+        "Stripe": true,
+        "jest": true,
+        "expect": true,
+        "__DEVELOPMENT__": true,
+        "__PRODUCTION__": true,
+        "__STAGING__": true,
+        "__TEST__": false,
+        "__SERVER__": true,
+        "__BROWSER__": true,
+        "__DISABLE_SSR__": true
+    }
+}

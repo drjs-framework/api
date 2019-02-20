@@ -1,0 +1,72 @@
+{
+    "presets": [
+        "@babel/preset-env", "@babel/preset-react"
+    ],
+    "ignore": [
+        "./node_modules"
+    ],
+    "sourceMaps": true,
+    "retainLines": true,
+    "env": {
+        "test": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-default-from",
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-proposal-export-namespace-from",            
+                "@babel/plugin-proposal-object-rest-spread",   
+                "@babel/plugin-proposal-optional-chaining", 
+                "dynamic-import-node",
+                "@babel/plugin-transform-runtime",
+                [
+                    "module-resolver",
+                    {
+                        "alias": {
+                            "public": "./statics"
+                        }
+                    }
+                ]
+            ]
+        },
+        "development": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-default-from",
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-proposal-export-namespace-from",
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/plugin-proposal-optional-chaining",
+                "dynamic-import-node",
+                "@babel/plugin-transform-runtime",
+                [
+                    "module-resolver",
+                    {
+                        "root": [
+                            "./src"
+                        ]
+                    }
+                ]
+            ]
+        },
+        "production": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-default-from",
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-proposal-export-namespace-from",    
+                "@babel/plugin-proposal-object-rest-spread",       
+                "@babel/plugin-proposal-optional-chaining",  
+                "dynamic-import-node",                   
+                "@babel/plugin-transform-runtime",
+                [
+                    "module-resolver",
+                    {
+                        "root": [
+                            "./src"
+                        ]
+                    }
+                ]
+            ]
+        }
+    }
+}
