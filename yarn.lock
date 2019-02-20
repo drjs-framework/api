@@ -755,10 +755,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@drjs/actions@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@drjs/actions/-/actions-0.1.2.tgz#68338ae81e23cce5f7fa02e7fbcbb2d5f782ea86"
-  integrity sha512-Jf4Llv8c3BvTJBTPaoMetNS6jPE1082qYgQdeW0eALyN78TKyknlT7qthzElj7UtYB4a0JSc+If02vu9nPiPUw==
+"@drjs/actions@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@drjs/actions/-/actions-0.1.5.tgz#dbb9d110a5ceb72ef5e2fdf4afd99c8cdd989c15"
+  integrity sha512-J2TmzdRKyFqU/jPTeUcZETuzEnmwjPCJeZC8IshutC/3XOUaLZ2CW/+UeBp6bHOAQ9Cd/djikRWFy0kVzQMJsw==
 
 "@drjs/router@^0.1.1":
   version "0.1.1"

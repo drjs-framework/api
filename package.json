@@ -2,9 +2,12 @@
   "name": "@drjs/api",
   "version": "0.0.1",
   "description": "Api library",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "amadormf",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "babel -d dist src",
@@ -19,7 +22,7 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "@drjs/actions": "^0.1.2",
+    "@drjs/actions": "0.1.5",
     "@drjs/router": "^0.1.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
@@ -36,7 +39,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.3.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
