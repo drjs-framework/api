@@ -9,6 +9,7 @@ export default class ApiDefault {
   static GET = 'GET';
   static HEAD = 'HEAD';
   static DELETE = 'DELETE';
+  static PATCH = 'PATCH';
 
   getRequest(method, url) {
     const localRequest = request(method, url)
