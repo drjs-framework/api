@@ -18,6 +18,14 @@ export default class JwtContainerWrapper {
     return JSON.parse(window.localStorage.tokenInfo).refreshToken;
   }
 
+  static getTokenInfo() {
+    if (window.localStorage.tokenInfo) {
+      return JSON.parse(window.localStorage.tokenInfo);
+    }
+
+    return null;
+  }
+
   static isExpired() {
     const dateToken = JSON.parse(window.localStorage.tokenInfo).date;
     const date = moment(dateToken, 'YYYY-MM-DDTHH:mm:ss');
