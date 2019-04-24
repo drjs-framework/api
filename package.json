@@ -1,6 +1,6 @@
 {
   "name": "@drjs/api",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Api library",
   "main": "dist/index.js",
   "author": "amadormf",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@drjs/actions": "0.1.5",
-    "@drjs/router": "^0.1.1",
+    "@drjs/router": "0.1.3",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "superagent": "^4.1.0"
