@@ -16,6 +16,7 @@ export default class ApiDefault {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json');
 
+    JwtContainer.addLastRequest();
     if (__DEVELOPMENT__) {
       const { end } = localRequest;
       const newEnd = (cb) => {

@@ -30,7 +30,17 @@ export default class JwtContainerWrapper {
     const dateToken = JSON.parse(window.localStorage.tokenInfo).date;
     const date = moment(dateToken, 'YYYY-MM-DDTHH:mm:ss');
 
-    return moment().isAfter(date);
+    const tokenExpired = moment().isAfter(date);
+    const trackingActivityTime = configuration.get('trackingActivityTime');
+    if (tokenExpired && trackingActivityTime) {
+      const lastRequest = moment(JwtContainerWrapper.getLastRequest());
+      if (moment().isAfter(lastRequest.add(trackingActivityTime))) {
+        return false;
+      }
+      return true;
+    }
+
+    return tokenExpired;
   }
 
   static removeTokenInfo() {
@@ -43,5 +53,19 @@ export default class JwtContainerWrapper {
 
   static existToken() {
     return window.localStorage.tokenInfo && JSON.parse(window.localStorage.tokenInfo).token;
+  }
+
+  static addLastRequest() {
+    if (window.localStorage.tokenInfo) {
+      window.localStorage.tokenInfo.lastRequest = new Date();
+    }
+  }
+
+  static getLastRequest() {
+    if (window.localStorage.tokenInfo) {
+      return JSON.parse(window.localStorage.tokenInfo).lastRequest;
+    }
+
+    return null;
   }
 }
