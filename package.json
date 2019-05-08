@@ -22,7 +22,7 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "@drjs/actions": "^0.1.5",
+    "@drjs/actions": "^0.1.6",
     "@drjs/router": "^0.1.4",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",

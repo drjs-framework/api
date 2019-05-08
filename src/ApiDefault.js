@@ -49,7 +49,8 @@ export default class ApiDefault {
       if (JwtContainer.haveRenewToken()) {
         this.overwriteEnd(localRequest);
       } else {
-        this.overwriteEndWithErrorRenew(localRequest);
+        const store = configuration.get('store');
+        store.dispatch(AuthActions.logout());
       }
     } else {
       this.setHeaderAuth(localRequest);
@@ -128,14 +129,6 @@ export default class ApiDefault {
       });
     };
     req.end = newEnd; // eslint-disable-line no-param-reassign
-  }
-
-  overwriteEndWithErrorRenew(req) {
-    const newEnd = (cb) => {
-      cb(ApiDefault.NOT_RENEW_ERROR);
-    };
-
-    req.end = newEnd;
   }
 
   getDefaultPagination(currentPagination) {
