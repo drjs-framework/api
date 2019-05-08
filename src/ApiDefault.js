@@ -93,12 +93,18 @@ export default class ApiDefault {
       .send({ refresh_token: this.getRenewToken() })
       .end((err, res) => {
         if (err) {
-          cb(err);
+          if (cb && typeof cb === 'function') {
+            cb(err);
+          }
         } else {
           const store = configuration.get('store');
           store.dispatch(AuthActions.saveToken(res.body));
-          this.setHeaderAuth(req);
-          cb(null, res);
+          if (req) {
+            this.setHeaderAuth(req);
+          }
+          if (cb && typeof cb === 'function') {
+            cb(null, res);
+          }
         }
       });
   }
