@@ -3,7 +3,10 @@ import jwtDecode from 'jwt-decode';
 
 export default class JwtContainerWrapper {
   static saveTokens(tokenInfo, expiration) {
-    const tokenInfoWithDate = Object.assign({ date: moment.unix(expiration).format() }, tokenInfo);
+    const tokenInfoWithDate = Object.assign({
+      date: moment.unix(expiration).format(),
+      lastRequest: new Date(),
+    }, tokenInfo);
     window.localStorage.tokenInfo = JSON.stringify(tokenInfoWithDate);
   }
 
