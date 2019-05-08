@@ -62,7 +62,7 @@ export default class JwtContainerWrapper {
     const tokenInfo = JwtContainerWrapper.getTokenInfo();
     if (tokenInfo) {
       tokenInfo.lastRequest = new Date();
-      window.localStorage.tokenInfo = tokenInfo;
+      window.localStorage.tokenInfo = JSON.stringify(tokenInfo);
     }
   }
 
