@@ -59,8 +59,10 @@ export default class JwtContainerWrapper {
   }
 
   static addLastRequest() {
-    if (window.localStorage.tokenInfo) {
-      window.localStorage.tokenInfo.lastRequest = new Date();
+    const tokenInfo = JwtContainerWrapper.getTokenInfo();
+    if (tokenInfo) {
+      tokenInfo.lastRequest = new Date();
+      window.localStorage.tokenInfo = tokenInfo;
     }
   }
 
