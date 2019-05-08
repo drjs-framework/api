@@ -33,17 +33,22 @@ export default class JwtContainerWrapper {
     const dateToken = JSON.parse(window.localStorage.tokenInfo).date;
     const date = moment(dateToken, 'YYYY-MM-DDTHH:mm:ss');
 
-    const tokenExpired = moment().isAfter(date);
-    const trackingActivityTime = configuration.get('trackingActivityTime');
-    if (tokenExpired && trackingActivityTime) {
-      const lastRequest = moment(JwtContainerWrapper.getLastRequest());
-      if (moment().isAfter(lastRequest.add(trackingActivityTime, 'seconds'))) {
-        return false;
+    return moment().isAfter(date);
+  }
+
+  haveRenewToken() {
+    try {
+      const trackingActivityTime = configuration.get('trackingActivityTime');
+      if (trackingActivityTime) {
+        const lastRequest = moment(JwtContainerWrapper.getLastRequest());
+        if (moment().isAfter(lastRequest.add(trackingActivityTime, 'seconds'))) {
+          return false;
+        }
       }
       return true;
+    } catch (e) {
+      return true;
     }
-
-    return tokenExpired;
   }
 
   static removeTokenInfo() {

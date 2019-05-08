@@ -11,6 +11,8 @@ export default class ApiDefault {
   static DELETE = 'DELETE';
   static PATCH = 'PATCH';
 
+  static NOT_RENEW_ERROR = 'not_renew';
+
   getRequest(method, url) {
     const localRequest = request(method, url)
       .set('Accept', 'application/json')
@@ -44,7 +46,11 @@ export default class ApiDefault {
     }
 
     if (JwtContainer.isExpired()) {
-      this.overwriteEnd(localRequest);
+      if (JwtContainer.haveRenewToken()) {
+        this.overwriteEnd(localRequest);
+      } else {
+        this.overwriteEndWithErrorRenew(localRequest);
+      }
     } else {
       this.setHeaderAuth(localRequest);
     }
@@ -122,6 +128,14 @@ export default class ApiDefault {
       });
     };
     req.end = newEnd; // eslint-disable-line no-param-reassign
+  }
+
+  overwriteEndWithErrorRenew(req) {
+    const newEnd = (cb) => {
+      cb(ApiDefault.NOT_RENEW_ERROR);
+    };
+
+    req.end = newEnd;
   }
 
   getDefaultPagination(currentPagination) {
