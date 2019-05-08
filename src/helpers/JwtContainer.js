@@ -36,7 +36,7 @@ export default class JwtContainerWrapper {
     return moment().isAfter(date);
   }
 
-  haveRenewToken() {
+  static haveRenewToken() {
     try {
       const trackingActivityTime = configuration.get('trackingActivityTime');
       if (trackingActivityTime) {

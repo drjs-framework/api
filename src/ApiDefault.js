@@ -46,11 +46,13 @@ export default class ApiDefault {
     }
 
     if (JwtContainer.isExpired()) {
-      if (JwtContainer.haveRenewToken()) {
+      if (!JwtContainer.haveRenewToken()) {
         this.overwriteEnd(localRequest);
       } else {
         const store = configuration.get('store');
-        store.dispatch(AuthActions.logout());
+        store.dispatch(AuthActions.logout({
+          redirectRoute: 'frontend.login',
+        }));
       }
     } else {
       this.setHeaderAuth(localRequest);
