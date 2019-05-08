@@ -1,6 +1,6 @@
 {
   "name": "@drjs/api",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Api library",
   "main": "dist/index.js",
   "author": "amadormf",
