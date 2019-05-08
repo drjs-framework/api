@@ -5,7 +5,7 @@ export default class JwtContainerWrapper {
   static saveTokens(tokenInfo, expiration) {
     const tokenInfoWithDate = Object.assign({
       date: moment.unix(expiration).format(),
-      lastRequest: new Date(),
+      lastRequest: moment().format(),
     }, tokenInfo);
     window.localStorage.tokenInfo = JSON.stringify(tokenInfoWithDate);
   }
@@ -37,7 +37,7 @@ export default class JwtContainerWrapper {
     const trackingActivityTime = configuration.get('trackingActivityTime');
     if (tokenExpired && trackingActivityTime) {
       const lastRequest = moment(JwtContainerWrapper.getLastRequest());
-      if (moment().isAfter(lastRequest.add(trackingActivityTime))) {
+      if (moment().isAfter(lastRequest.add(trackingActivityTime, 'seconds'))) {
         return false;
       }
       return true;
