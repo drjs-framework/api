@@ -749,10 +749,10 @@
   resolved "https://registry.yarnpkg.com/@drjs/actions/-/actions-0.1.7.tgz#d1e5b4ef200d133d31c59bc60a1dba7681589d75"
   integrity sha512-AD+oau1H+ffJgm4QSe2VVbfSOfCXxEUsoA/Ej0E+GclJ5833e8TOTXxEaBAF/0XFSD0CN2fKNLiDvQJfLUHzfg==
 
-"@drjs/router@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@drjs/router/-/router-0.3.0.tgz#3d2f147c8c398c68f7cdb0bb78a37349346b697e"
-  integrity sha512-pkFRq4HCbKeCk5wWS4ADpeI0HnM3O5gltJ+8yvoieByQf0Dq3vET2uKZGOxqt0yoKZBJiKfeykugGcKUTzU3AQ==
+"@drjs/router@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@drjs/router/-/router-0.3.1.tgz#c301c0cc83dd15b2ef8aac69e113ae741eb79001"
+  integrity sha512-DJgoj3PI3NppyTfWLBze5cF5dMDsE/hoI4ZkcIuM2iozazcJD39fYVre68snDY7aPNx/igFHuBzsPzZjBZByVA==
   dependencies:
     query-string "^6.2.0"
     react "^16.8.2"
