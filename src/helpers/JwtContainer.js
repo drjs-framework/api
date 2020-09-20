@@ -64,7 +64,7 @@ export default class JwtContainerWrapper {
   }
 
   static addLastRequest() {
-    if (window) {
+    if (typeof window !== 'undefined' && window) {
       const tokenInfo = JwtContainerWrapper.getTokenInfo();
       if (tokenInfo) {
         tokenInfo.lastRequest = new Date();
