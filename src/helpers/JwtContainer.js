@@ -64,10 +64,12 @@ export default class JwtContainerWrapper {
   }
 
   static addLastRequest() {
-    const tokenInfo = JwtContainerWrapper.getTokenInfo();
-    if (tokenInfo) {
-      tokenInfo.lastRequest = new Date();
-      window.localStorage.tokenInfo = JSON.stringify(tokenInfo);
+    if (window) {
+      const tokenInfo = JwtContainerWrapper.getTokenInfo();
+      if (tokenInfo) {
+        tokenInfo.lastRequest = new Date();
+        window.localStorage.tokenInfo = JSON.stringify(tokenInfo);
+      }
     }
   }
 
